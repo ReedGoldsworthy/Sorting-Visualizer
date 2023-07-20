@@ -1,4 +1,3 @@
-//let speed = 30;
 async function merge(ele, low, mid, high) {
   const n1 = mid - low + 1;
   const n2 = high - mid;
@@ -25,8 +24,6 @@ async function merge(ele, low, mid, high) {
     k = low;
   while (i < n1 && j < n2) {
     await waitforme(speed);
-
-    // To add color for which two r being compared for merging
 
     if (parseInt(left[i]) <= parseInt(right[j])) {
       // color
@@ -90,8 +87,14 @@ async function mergeSort(ele, l, r) {
 }
 
 async function mergeSortStartup() {
+  //turn off other sorting buttons
+  disableButtonsByClassName("btn");
+
   const ele = document.querySelectorAll(".bar");
   let left = 0;
   let right = parseInt(ele.length) - 1;
   await mergeSort(ele, left, right);
+
+  //turn on sorting buttons
+  enableButtonsByClassName("btn");
 }

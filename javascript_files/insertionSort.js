@@ -1,6 +1,7 @@
 async function insertionSort() {
+  //disable all buttons
+  disableButtonsByClassName("btn");
   const ele = document.querySelectorAll(".bar");
-  console.log("insertionSort");
 
   ele[0].style.background = "green";
   for (let i = 1; i < ele.length; i++) {
@@ -28,4 +29,7 @@ async function insertionSort() {
     ele[i].style.background = "green";
     await waitforme(speed);
   }
+
+  //enables buttons after animation is done
+  enableButtonsByClassName("btn");
 }

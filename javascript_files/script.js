@@ -1,6 +1,6 @@
 // Global variables that set the number of elements and sorting speed
 var size = 20;
-var speed = 100;
+var speed = 80;
 
 const array = [];
 
@@ -35,6 +35,8 @@ function createNewArray() {
     bar.classList.add("bar");
     container.appendChild(bar);
   }
+
+  enableButtonsByClassName("btn");
 }
 
 // swap function util for sorting algorithms takes input of 2 DOM elements with .style.height feature
@@ -51,6 +53,22 @@ function waitforme(milisec) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("");
-    }, 300 - milisec);
+    }, 400 - milisec);
+  });
+}
+
+// function to disable by class name
+function disableButtonsByClassName(className) {
+  const buttons = document.querySelectorAll("." + className);
+  buttons.forEach((button) => {
+    button.disabled = true;
+  });
+}
+
+// function to enable by class name
+function enableButtonsByClassName(className) {
+  const buttons = document.querySelectorAll("." + className);
+  buttons.forEach((button) => {
+    button.disabled = false;
   });
 }

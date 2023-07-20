@@ -1,4 +1,7 @@
 async function selectionSort() {
+  //turn off other sorting buttons
+  disableButtonsByClassName("btn");
+
   const ele = document.querySelectorAll(".bar");
   for (let i = 0; i < ele.length; i++) {
     let minIdx = i;
@@ -33,4 +36,7 @@ async function selectionSort() {
     // change sorted elements color to green
     ele[i].style.background = "green";
   }
+
+  //turn on sorting buttons
+  enableButtonsByClassName("btn");
 }

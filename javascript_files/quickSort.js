@@ -5,7 +5,7 @@ async function partitionLomuto(ele, l, r) {
   for (let j = l; j <= r - 1; j++) {
     // color current element
     ele[j].style.background = "yellow";
-    // pauseChamp
+
     await waitforme(speed);
 
     if (parseInt(ele[j].style.height) < parseInt(ele[r].style.height)) {
@@ -55,8 +55,14 @@ async function quickSort(ele, l, r) {
 
 // calls quicksort on bars with l = 0, r = arr.length - 1
 async function quickSortStartup() {
+  //turn off other sorting buttons
+  disableButtonsByClassName("btn");
+
   const ele = document.querySelectorAll(".bar");
   let left = 0;
   let right = ele.length - 1;
   await quickSort(ele, left, right);
+
+  //turn on sorting buttons
+  enableButtonsByClassName("btn");
 }

@@ -1,5 +1,8 @@
 // Function bubblesorts the bar elements by height and colors them (Green->sorted, Red->In progress)
 async function bubbleSort(array) {
+  //turn off other sorting buttons
+  disableButtonsByClassName("btn");
+
   const ele = document.querySelectorAll(".bar");
   for (let i = 0; i < ele.length - 1; i++) {
     for (let j = 0; j < ele.length - i - 1; j++) {
@@ -17,4 +20,7 @@ async function bubbleSort(array) {
     ele[ele.length - 1 - i].style.background = "green";
   }
   ele[0].style.background = "green";
+
+  //turn all buttons back on
+  enableButtonsByClassName("btn");
 }
